@@ -8,10 +8,11 @@
     android:backgroundTint="#ECECEC"
     tools:context=".MainActivity">
 
+
     <View
         android:id="@+id/upperBar"
-        android:layout_width="411dp"
-        android:layout_height="233dp"
+        android:layout_width="410dp"
+        android:layout_height="165dp"
         android:background="#CD5858"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,11 +28,24 @@
         app:layout_constraintTop_toBottomOf="@+id/upperBar" />
 
     <CalendarView
+        android:id="@+id/calendar2"
+        android:layout_width="413dp"
+        android:layout_height="363dp"
+        android:background="#878787"
+        android:focusedMonthDateColor="#F4F4F4"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/mainBody"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+    <CalendarView
         android:id="@+id/calendar"
         android:layout_width="413dp"
         android:layout_height="363dp"
         android:background="#F4F4F4"
         android:focusedMonthDateColor="#F4F4F4"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/mainBody"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +55,7 @@
         android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif"
         android:text="Light Mode"
         android:textColor="#3E3E3E"
         android:textSize="28sp"
@@ -54,7 +68,7 @@
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="350dp"
+        android:layout_marginBottom="450dp"
         android:fontFamily="sans-serif-medium"
         android:text="0"
         android:textColor="#403F3F"
