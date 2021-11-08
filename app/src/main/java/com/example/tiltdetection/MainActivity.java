@@ -1,5 +1,6 @@
 package com.example.tiltdetection;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.solver.state.State;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -16,7 +17,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.TextView;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.security.Provider;
 
@@ -26,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     View layout;
     View upperView;
     TextView modeIdentifier;
+    CalendarView calendarview;
 
     SensorManager sensorManager;
     Sensor sensor;
@@ -39,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         upperView = findViewById(R.id.upperBar);
         modeIdentifier = findViewById(R.id.tv2);
         textView = findViewById(R.id.tv1);
+        calendarview = findViewById(R.id.calendar);
 
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
@@ -61,28 +71,26 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if(event.sensor.getType() == Sensor.TYPE_LIGHT)
-        {
+        if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
             textView.setText("" + event.values[0]);
         }
 
         float luxData = event.values[0];
 
-        if(luxData > 20000f)
-        {
+        if (luxData > 20000f) {
             upperView.setBackgroundColor(Color.parseColor("#CD5858"));
             modeIdentifier.setText("Light mode");
             modeIdentifier.setTextColor(Color.parseColor("#3E3E3E"));
             layout.setBackgroundColor(Color.parseColor("#F4F4F4"));
             textView.setTextColor(Color.parseColor("#403F3F"));
-        }
-        else
-        {
+            calendarview.setBackgroundColor(Color.parseColor("#F4F4F4"));
+        } else {
             upperView.setBackgroundColor(Color.parseColor("#363636"));
             modeIdentifier.setText("Dark mode");
             modeIdentifier.setTextColor(Color.parseColor("#FFFFFF"));
             layout.setBackgroundColor(Color.parseColor("#515151"));
             textView.setTextColor(Color.parseColor("#F0EEEE"));
+            calendarview.setBackgroundColor(Color.parseColor("#878787"));
         }
 
     }

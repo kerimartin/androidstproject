@@ -22,8 +22,20 @@
         android:layout_height="497dp"
         android:background="#F4F4F4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upperBar" />
+
+    <CalendarView
+        android:id="@+id/calendar"
+        android:layout_width="413dp"
+        android:layout_height="363dp"
+        android:background="#F4F4F4"
+        android:focusedMonthDateColor="#F4F4F4"
+        app:layout_constraintBottom_toBottomOf="@+id/mainBody"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
 
     <TextView
         android:id="@+id/tv2"
@@ -42,7 +54,7 @@
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="350dp"
         android:fontFamily="sans-serif-medium"
         android:text="0"
         android:textColor="#403F3F"
